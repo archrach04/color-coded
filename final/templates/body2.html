@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Type Result</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background: url('https://i.pinimg.com/originals/90/9e/25/909e25893881b145777c4c02b69a788a.gif') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+            position: relative; /* Add relative positioning to the body */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.squarespace-cdn.com/content/v1/5b391c6f620b856d08220e4e/1548786186290-Y35V1N2ZKSBRDXC10QSF/IMG_2907.gif');
+            background-size: contain;
+            z-index: 1;
+            opacity: 0.6; /* Adjust opacity as needed */
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            border: 2px solid #F13AB1; /* Elegant border color */
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            color: #070707; /* Darker color for heading */
+            font-size: 2rem;
+        }
+
+        p {
+            margin: 15px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        strong {
+            color: #F13AB1; /* Accent color for strong text */
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #FD913C; /* Button background color */
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #F05524; /* Darker shade for hover effect */
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Your Body Type</h1>
+        <p><strong>Body Type:</strong> {{ body_type }}</p>
+        <p><strong>Recommended Dresses:</strong> {{ recommendations }}</p>
+        <form action="{{ url_for('color') }}" method="get">
+            <button type="submit">Let's Color Analyze!</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Type Calculator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background: url('https://i.pinimg.com/originals/90/9e/25/909e25893881b145777c4c02b69a788a.gif') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.squarespace-cdn.com/content/v1/5b391c6f620b856d08220e4e/1548786186290-Y35V1N2ZKSBRDXC10QSF/IMG_2907.gif');
+            background-size: contain;
+            z-index: 1;
+            opacity: 0.6; /* Adjust opacity as needed */
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            border: 2px solid #F13AB1; /* Elegant border color */
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            color: #070707; /* Darker color for heading */
+            font-size: 2rem;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 8px;
+            font-size: 1.1em;
+            color: #F13AB1; /* Accent color */
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #F13AB1; /* Accent border color */
+            border-radius: 10px;
+            background-color: #f8f8f8; /* Light background for inputs */
+            color: #333;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            padding: 12px 25px;
+            background-color: #FD913C; /* Button background color */
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #F05524; /* Darker shade for hover effect */
+            transform: scale(1.05);
+        }
+
+        input[type="submit"]:active {
+            transform: scale(0.95);
+        }
+
+        a {
+            color: #F13AB1; /* Accent color */
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Body Type Calculator</h1>
+        <form id="bodyTypeForm" action="{{ url_for('calculate_body_type') }}" method="POST">
+            <label for="shoulders">Shoulders (cm):</label>
+            <input type="number" id="shoulders" name="shoulders" required><br>
+            <label for="bust">Bust (cm):</label>
+            <input type="number" id="bust" name="bust" required><br>
+            <label for="waist">Waist (cm):</label>
+            <input type="number" id="waist" name="waist" required><br>
+            <label for="hips">Hips (cm):</label>
+            <input type="number" id="hips" name="hips" required><br>
+            <input type="submit" value="Calculate Body Type">
+        </form>
+    </div>
+</body>
+</html>

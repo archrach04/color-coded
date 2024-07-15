@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Search</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background: url('https://i.pinimg.com/originals/90/9e/25/909e25893881b145777c4c02b69a788a.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        header {
+            background-color: #f05524;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0; /* Adjust padding for smaller header */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem; /* Adjusted font size for smaller header */
+        }
+
+        main {
+            max-width: 1000px;
+            height: 80vh;
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #search-form {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            margin: 10px;
+            width: calc(100% - 24px);
+            max-width: 400px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e55b4f;
+            transform: scale(1.05);
+        }
+
+        input[type="submit"]:active {
+            transform: scale(0.95);
+        }
+
+        #body-type-section {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            input[type="text"], input[type="submit"] {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://img.pikbest.com/origin/09/28/94/54MpIkbEsTtF5.png!sw800" alt="Self Love" class="corner-image">
+        <h1>Product Search</h1>
+    </header>
+    <main>
+        <form id="search-form" action="{{ url_for('perform_search') }}" method="POST">
+            <input type="text" name="keyword" placeholder="Enter a product name...">
+            <input type="submit" value="Search">
+        </form>
+
+        <div id="body-type-section">
+            <h2>Look for these clothes!</h2>
+            <p><strong>Body Type:</strong> {{ body_type }}</p>
+            <p><strong>Recommended Dresses:</strong> {{ recommendations }}</p>
+            <p><strong>Your color palette and suitable colors:</strong> {{ palette }}</p>
+            <div id="output"></div>
+        </div>
+        <img src="https://media.baamboozle.com/uploads/images/135571/5e04e619-7e30-46fa-8066-f6168d8ee37c.gif" class="corner-image" width="150" height="150" >
+
+    </main>
+
+    <script>
+        // Function to scroll to the bottom of the page smoothly
+        function scrollToBottom(delay) {
+            setTimeout(function() {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, delay);
+        }
+
+        // Call the function with a 2-second delay
+        scrollToBottom(500); // 2000 milliseconds = 2 seconds
+    </script>
+</body>
+</html>
